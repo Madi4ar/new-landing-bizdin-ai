@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Bizdin AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    #logo {
+      display: none !important;
+    }
+    #nav-icon1 {
+      width: 30px;
+      height: 20px;
+      position: relative;
+      margin: 0 auto;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    #nav-icon1 span {
+      display: block;
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background: white;
+      border-radius: 9px;
+      left: 0;
+      transition: 0.25s ease-in-out;
+    }
+
+    /* Расположение линий (10px между ними) */
+    #nav-icon1 span:nth-child(1) {
+      top: 0px;
+    }
+    #nav-icon1 span:nth-child(2) {
+      top: 10px;
+    }
+    #nav-icon1 span:nth-child(3) {
+      top: 20px;
+    }
+
+    /* Анимация для "X" */
+    #nav-icon1.open span:nth-child(1) {
+      top: 10px; /* Центрируем */
+      transform: rotate(135deg);
+    }
+    #nav-icon1.open span:nth-child(2) {
+      opacity: 0;
+    }
+    #nav-icon1.open span:nth-child(3) {
+      top: 10px; /* Центрируем */
+      transform: rotate(-135deg);
+    }
+    .linear-button {
+      background: linear-gradient(90deg, #8331d3 0%, #9d52e6 65%, #d4acff 100%);
+    }
+  </style>
+  <body class="bg-black font-['Nunito_Sans'] text-white">
+    <div
+      class="menu-block fixed top-0 w-full bg-black/80 backdrop-blur-lg z-20 border-b border-[#313338]">
+      <div
+        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto">
+        <div class="menu w-full flex items-center justify-between py-[8px]">
+          <a href="">
+            <img class="w-32" src="images/logo.svg" alt="" />
+          </a>
+
+          <div class="mobile-menu xl:hidden flex items-center">
+            <svg
+              class="hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 7L4 7"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round" />
+              <path
+                d="M20 12L4 12"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round" />
+              <path
+                d="M20 17L4 17"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round" />
+            </svg>
+
+            <div id="nav-icon1">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div
+            class="nav-block transition-all duration-300 hidden xl:flex xl:relative absolute top-[60px] xl:top-0 bg-[rgba(0,0,0,0.95)] xl:bg-transparent h-screen xl:h-auto xl:right-0 xl:justify-end left-0 w-full flex-col justify-center xl:flex-row items-center">
+            <nav class="mr-0 xl:mr-[120px]">
+              <ul
+                class="mt-5 flex flex-col xl:flex-row items-center justify-between w-full xl:w-[735px]">
+                <li class="mb-5">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >What we offer</a
+                  >
+                </li>
+                <li class="mb-5 hidden">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >Features</a
+                  >
+                </li>
+                <li class="mb-5">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >How to join</a
+                  >
+                </li>
+                <li class="mb-5">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >Use cases</a
+                  >
+                </li>
+                <li class="mb-5">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >How it works
+                  </a>
+                </li>
+
+                <li class="mb-5">
+                  <a
+                    href="#"
+                    class="text-white font-medium text-2xl xl:text-base"
+                    >Contacts
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <div
+              class="xl:hidden flex flex-col items-center justify-center mt-10">
+              <p>Contact us:</p>
+              <div class="flex justify-between w-full mt-5">
+                <a
+                  class="border-r-2 px-4 border-white-500"
+                  href="tel:+7 706 413 06 99"
+                  >+7 706 413 06 99</a
+                >
+                <a class="ml-5" href="mailto:gmail.com">mail!@gmail.com</a>
+              </div>
+
+              <div class="flex mt-8">
+                <a href="">
+                  <img src="images/Instagram.svg" alt="" />
+                </a>
+
+                <a href="" class="ml-5">
+                  <img src="images/Telegram.svg" alt="" />
+                </a>
+              </div>
+            </div>
+
+            <a
+              href=""
+              class="hidden xl:block xl:mt-0 mt-5 bg-[#313338] py-[10px] px-[20px] text-white rounded-[100px] text-base"
+              >Get a DEMO
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:block h-screen">
+      <spline-viewer
+        class="hidden md:block mt-16 h-full object-cover"
+        url="https://prod.spline.design/zSDHJ4-M9PxdlG5o/scene.splinecode"></spline-viewer>
+    </div>
+
+    <div class="md:hidden flex flex-col px-10 mt-5">
+      <img
+        class=""
+        src="images/NEXBOT - robot character concept@1-1536x730 1.png"
+        alt="" />
+
+      <p class="text-[28px] font-bold text-center leading-[28px] mt-10">
+        The first AI platform that sees, understands and reacts like a human
+      </p>
+
+      <p class="text-[#9AA0A6] text-center mt-[15px] font-normal">
+        Turn any camera into an intelligent agent capable of detecting,
+        analyzing, and optimizing real-world events in real time. Bizdin AI
+        processes and indexes video and images, making your content instantly
+        searchable
+      </p>
+    </div>
+
+    <div class="flex justify-center items-center mt-[35px]">
+      <a
+        href=""
+        class="px-[12px] py-[13px] rounded-[48px] border border-[rgba(255,255,255,0.61)]">
+        Use invite code
+      </a>
+
+      <a
+        href=""
+        class="flex items-center linear-button px-[12px] py-[13px] rounded-[48px] ml-5">
+        Request early access
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="19"
+          height="18"
+          viewBox="0 0 19 18"
+          fill="none">
+          <path
+            d="M6.1925 13.9425L7.25 15L13.25 9L7.25 3L6.1925 4.0575L11.1275 9"
+            fill="white" />
+        </svg>
+      </a>
+    </div>
+
+    <div
+      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]">
+      <p class="font-bold text-[75px] leading-[118%] text-white text-center">
+        See Bizdin.AI <br />
+        in Action
+      </p>
+    </div>
+
+    <div
+      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]">
+      <p class="font-bold text-[75px] leading-[118%] text-white text-center">
+        Why choose <br />
+        Bizdin AI?
+      </p>
+
+      <div class="w-full flex flex-wrap justify-between mt-[80px]">
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img src="images/Particles 🌑@2-1536x730 1.svg" alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            Real-Time Analytics
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            Instantly detect and analyze events like fights, smoking, or unusual
+            behavior, providing actionable insights in real time.
+          </p>
+        </div>
+
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img src="images/image.svg" alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            Local AI Processing
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            Operate locally to ensure privacy and reduce bandwidth usage—perfect
+            for environments with hundreds of cameras.
+          </p>
+        </div>
+
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img
+            src="images/Interactive spark letter with particle effect@1-1536x730 1.svg"
+            alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            Customizable AI Models
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            Train and customize AI models without coding, tailoring them to your
+            specific needs for maximum flexibility.
+          </p>
+        </div>
+
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img src="images/image (1).svg" alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            API-Based Indexing
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            Automatically structure and index video and photo content through
+            our robust API, making data instantly searchable and actionable.
+          </p>
+        </div>
+
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img src="images/image (2).svg" alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            We connect any cameras
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            We work with 95% of cameras, regardless of connection type or
+            manufacturer.
+          </p>
+        </div>
+
+        <div
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          <img src="images/image (3).svg" alt="" />
+
+          <p class="text-xl font-medium text-center mt-[55px]">
+            We support cloud solutions
+          </p>
+
+          <p class="text-base font-normal text-center text-[#9AA0A6] mt-[20px]">
+            We provide secure access to surveillance cameras via the cloud from
+            anywhere in the world.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 mx-auto flex flex-col items-center mt-[100px]">
+      <p
+        class="font-bold text-[75px] leading-[118%] w-full lg:w-[1080px] text-white text-center leading-[118%]">
+        Connection options to AI VLM Model Bizdin AI: Cloud, API
+      </p>
+
+      <div class="flex justify-between">
+        <div class="w-full md:w-[49%] linear-background">
+          <img class="w-full" src="images/Group 427320636 1.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.9.75/build/spline-viewer.js"></script>
+  </body>
+</html>
