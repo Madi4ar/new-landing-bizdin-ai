@@ -47,3 +47,27 @@ document.querySelector(".open-play").onclick = function () {
 document.querySelector(".close-btn").onclick = function () {
   document.querySelector(".popup").classList.add("hidden");
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  for (let link of links) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const targetId = link.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const offset = 100;
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
+  }
+});
