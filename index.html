@@ -8,7 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <style>
@@ -35,7 +41,6 @@
       transition: 0.25s ease-in-out;
     }
 
-    /* Расположение линий (10px между ними) */
     #nav-icon1 span:nth-child(1) {
       top: 0px;
     }
@@ -46,27 +51,105 @@
       top: 20px;
     }
 
-    /* Анимация для "X" */
     #nav-icon1.open span:nth-child(1) {
-      top: 10px; /* Центрируем */
+      top: 10px;
       transform: rotate(135deg);
     }
     #nav-icon1.open span:nth-child(2) {
       opacity: 0;
     }
     #nav-icon1.open span:nth-child(3) {
-      top: 10px; /* Центрируем */
+      top: 10px;
       transform: rotate(-135deg);
     }
     .linear-button {
       background: linear-gradient(90deg, #8331d3 0%, #9d52e6 65%, #d4acff 100%);
     }
+
+    .linear-background {
+      background: linear-gradient(
+        180deg,
+        rgba(131, 49, 211, 0.18) 0%,
+        rgba(131, 49, 211, 0) 100%
+      );
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35%;
+      margin-left: 100px;
+      padding-bottom: 100px;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-slide-active {
+      transform: scale(1.2) !important;
+    }
+
+    .swiper-pagination {
+      margin-left: 40px;
+    }
+    .swiper-pagination-bullet {
+      width: 14px;
+      height: 14px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color: #000;
+      opacity: 1;
+      border: 1px solid white;
+    }
+
+    .swiper-pagination-bullet-active {
+      color: #fff;
+      background: #8331d3;
+    }
+
+    @media (max-width: 479px) {
+      .swiper-slide {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .swiper-slide-active {
+        transform: scale(0.95) !important;
+      }
+
+      .swiper-pagination {
+        margin-left: 0px;
+      }
+    }
+
+    .answer {
+      display: none;
+    }
+
+    .rotate-180 path {
+      stroke: purple;
+    }
   </style>
   <body class="bg-black font-['Nunito_Sans'] text-white">
     <div
-      class="menu-block fixed top-0 w-full bg-black/80 backdrop-blur-lg z-20 border-b border-[#313338]">
+      class="menu-block fixed top-0 w-full bg-black/80 backdrop-blur-lg z-20 border-b border-[#313338]"
+    >
       <div
-        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto">
+        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto"
+      >
         <div class="menu w-full flex items-center justify-between py-[8px]">
           <a href="">
             <img class="w-32" src="images/logo.svg" alt="" />
@@ -79,22 +162,26 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M20 7L4 7"
                 stroke="white"
                 stroke-width="1.5"
-                stroke-linecap="round" />
+                stroke-linecap="round"
+              />
               <path
                 d="M20 12L4 12"
                 stroke="white"
                 stroke-width="1.5"
-                stroke-linecap="round" />
+                stroke-linecap="round"
+              />
               <path
                 d="M20 17L4 17"
                 stroke="white"
                 stroke-width="1.5"
-                stroke-linecap="round" />
+                stroke-linecap="round"
+              />
             </svg>
 
             <div id="nav-icon1">
@@ -105,10 +192,12 @@
           </div>
 
           <div
-            class="nav-block transition-all duration-300 hidden xl:flex xl:relative absolute top-[60px] xl:top-0 bg-[rgba(0,0,0,0.95)] xl:bg-transparent h-screen xl:h-auto xl:right-0 xl:justify-end left-0 w-full flex-col justify-center xl:flex-row items-center">
+            class="nav-block transition-all duration-300 hidden xl:flex xl:relative absolute top-[60px] xl:top-0 bg-[rgba(0,0,0,0.95)] xl:bg-transparent h-screen xl:h-auto xl:right-0 xl:justify-end left-0 w-full flex-col justify-center xl:flex-row items-center"
+          >
             <nav class="mr-0 xl:mr-[120px]">
               <ul
-                class="mt-5 flex flex-col xl:flex-row items-center justify-between w-full xl:w-[735px]">
+                class="mt-5 flex flex-col xl:flex-row items-center justify-between w-full xl:w-[735px]"
+              >
                 <li class="mb-5">
                   <a
                     href="#"
@@ -156,7 +245,8 @@
             </nav>
 
             <div
-              class="xl:hidden flex flex-col items-center justify-center mt-10">
+              class="xl:hidden flex flex-col items-center justify-center mt-10"
+            >
               <p>Contact us:</p>
               <div class="flex justify-between w-full mt-5">
                 <a
@@ -188,17 +278,19 @@
       </div>
     </div>
 
-    <div class="hidden md:block h-screen">
+    <div class="hidden xl:block h-screen">
       <spline-viewer
-        class="hidden md:block mt-16 h-full object-cover"
-        url="https://prod.spline.design/zSDHJ4-M9PxdlG5o/scene.splinecode"></spline-viewer>
+        class="hidden xl:block mt-16 h-full object-cover"
+        url="https://prod.spline.design/zSDHJ4-M9PxdlG5o/scene.splinecode"
+      ></spline-viewer>
     </div>
 
-    <div class="md:hidden flex flex-col px-10 mt-5">
+    <div class="xl:hidden flex flex-col items-center px-10 mt-5">
       <img
-        class=""
+        class="h-[500px] w-full object-cover"
         src="images/NEXBOT - robot character concept@1-1536x730 1.png"
-        alt="" />
+        alt=""
+      />
 
       <p class="text-[28px] font-bold text-center leading-[28px] mt-10">
         The first AI platform that sees, understands and reacts like a human
@@ -215,45 +307,95 @@
     <div class="flex justify-center items-center mt-[35px]">
       <a
         href=""
-        class="px-[12px] py-[13px] rounded-[48px] border border-[rgba(255,255,255,0.61)]">
+        class="px-[12px] py-[13px] rounded-[48px] border border-[rgba(255,255,255,0.61)]"
+      >
         Use invite code
       </a>
 
       <a
         href=""
-        class="flex items-center linear-button px-[12px] py-[13px] rounded-[48px] ml-5">
+        class="flex items-center linear-button px-[12px] py-[13px] rounded-[48px] ml-5"
+      >
         Request early access
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19"
           height="18"
           viewBox="0 0 19 18"
-          fill="none">
+          fill="none"
+        >
           <path
             d="M6.1925 13.9425L7.25 15L13.25 9L7.25 3L6.1925 4.0575L11.1275 9"
-            fill="white" />
+            fill="white"
+          />
         </svg>
       </a>
     </div>
 
     <div
-      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]">
-      <p class="font-bold text-[75px] leading-[118%] text-white text-center">
+      class="px-3.5 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]"
+    >
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] text-white text-center"
+      >
         See Bizdin.AI <br />
         in Action
       </p>
+
+      <div
+        class="open-play w-full relative border border-transparent hover:border-2 hover:border-[#5A0AA8] rounded-xl transition-all duration-300"
+      >
+        <img
+          class="w-full mt-10 rounded-xl"
+          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnpreWZ4d2dtaXo5ZGU4dmNhOHMzaHR4ZXc0c256YzF2cHBtcHZtZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/APmpUZmp1TK2JDxAvR/giphy.gif"
+          alt=""
+        />
+
+        <div
+          class="cursor-pointer absolute bottom-5 right-5 flex items-center justify-center rounded-full py-5 h-14 w-14 bg-[#5A0AA8]"
+        >
+          <img class="w-7 ml-1" src="images/play-button-arrowhead.svg" alt="" />
+        </div>
+      </div>
+
+      <div
+        class="popup bg-black/80 flex items-center justify-center backdrop-blur-lg fixed top-0 h-screen w-full z-9999 hidden"
+      >
+        <iframe
+          class="w-full md:w-1/2 h-1/2 px-3.5"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/2g8rFNrdtac?si=s1TB-yV5TAxpjJer"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          autoplay
+        ></iframe>
+
+        <img
+          class="close-btn w-10 absolute top-10 right-10 cursor-pointer"
+          src="images/close.svg"
+          alt=""
+        />
+      </div>
     </div>
 
     <div
-      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]">
-      <p class="font-bold text-[75px] leading-[118%] text-white text-center">
+      class="px-3.5 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]"
+    >
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] text-white text-center"
+      >
         Why choose <br />
         Bizdin AI?
       </p>
 
       <div class="w-full flex flex-wrap justify-between mt-[80px]">
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img src="images/Particles 🌑@2-1536x730 1.svg" alt="" />
 
           <p class="text-xl font-medium text-center mt-[55px]">
@@ -267,7 +409,8 @@
         </div>
 
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img src="images/image.svg" alt="" />
 
           <p class="text-xl font-medium text-center mt-[55px]">
@@ -281,10 +424,12 @@
         </div>
 
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img
             src="images/Interactive spark letter with particle effect@1-1536x730 1.svg"
-            alt="" />
+            alt=""
+          />
 
           <p class="text-xl font-medium text-center mt-[55px]">
             Customizable AI Models
@@ -297,7 +442,8 @@
         </div>
 
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img src="images/image (1).svg" alt="" />
 
           <p class="text-xl font-medium text-center mt-[55px]">
@@ -311,7 +457,8 @@
         </div>
 
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img src="images/image (2).svg" alt="" />
 
           <p class="text-xl font-medium text-center mt-[55px]">
@@ -325,7 +472,8 @@
         </div>
 
         <div
-          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]">
+          class="w-full mb-5 md:w-[48%] flex flex-col items-center justify-center p-[10px] md:p-[40px] rounded-[23px] bg-[#121212] border border-[rgba(255,255,255,0.19)]"
+        >
           <img src="images/image (3).svg" alt="" />
 
           <p class="text-xl font-medium text-center mt-[55px]">
@@ -340,23 +488,705 @@
       </div>
     </div>
 
-    <div
-      class="px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 mx-auto flex flex-col items-center mt-[100px]">
+    <div class="px-3.5 md:w-full mx-auto flex flex-col items-center mt-[100px]">
       <p
-        class="font-bold text-[75px] leading-[118%] w-full lg:w-[1080px] text-white text-center leading-[118%]">
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] w-full lg:w-[1080px] text-white text-center leading-[118%]"
+      >
         Connection options to AI VLM Model Bizdin AI: Cloud, API
       </p>
 
-      <div class="flex justify-between">
-        <div class="w-full md:w-[49%] linear-background">
-          <img class="w-full" src="images/Group 427320636 1.svg" alt="" />
+      <div class="flex flex-wrap justify-between w-full mt-[65px]">
+        <div class="w-full md:w-[49%]">
+          <div class="linear-background rounded-lg">
+            <img
+              class="w-full py-16 overflow-hidden rounded-[23px]"
+              src="images/Group 427320636 1.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="flex flex-col px-[40px] py-[40px] w-full md:w-[450px]">
+            <p class="text-xl font-medium leading-[115%]">Cloud Connection</p>
+            <p class="mt-5 w-full text-[#9AA0A6]">
+              Provides easy access via a web interface, cloud data storage, and
+              the ability to manage cameras from anywhere in the world.
+            </p>
+            <a href="" class="flex items-center mt-5 text-[#8331D3]">
+              Learn more
+              <svg
+                class="ml-3"
+                width="18"
+                height="19"
+                viewBox="0 0 18 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.375 7.83203C15.375 8.03914 15.5429 8.20703 15.75 8.20703C15.9571 8.20703 16.125 8.03914 16.125 7.83203H15.375ZM10.5 2.20703C10.2929 2.20703 10.125 2.37492 10.125 2.58203C10.125 2.78914 10.2929 2.95703 10.5 2.95703V2.20703ZM15.6356 3.15534L15.9697 2.98509V2.98509L15.6356 3.15534ZM15.1767 2.69647L15.3469 2.36235V2.36235L15.1767 2.69647ZM14.9652 3.8972C15.1116 3.75075 15.1116 3.51331 14.9652 3.36687C14.8187 3.22042 14.5813 3.22042 14.4348 3.36687L14.9652 3.8972ZM8.73484 9.06687C8.58839 9.21331 8.58839 9.45075 8.73484 9.5972C8.88128 9.74364 9.11872 9.74364 9.26516 9.5972L8.73484 9.06687ZM3.64605 15.8034L3.81629 15.4692H3.81629L3.64605 15.8034ZM2.52868 14.686L2.19455 14.8562H2.19455L2.52868 14.686ZM13.2213 14.686L12.8872 14.5157L13.2213 14.686ZM12.104 15.8034L11.9337 15.4692L12.104 15.8034ZM3.64605 5.11071L3.4758 4.77658L3.64605 5.11071ZM2.52868 6.22808L2.19455 6.05783H2.19455L2.52868 6.22808ZM7.875 5.20703C8.08211 5.20703 8.25 5.03914 8.25 4.83203C8.25 4.62492 8.08211 4.45703 7.875 4.45703V5.20703ZM13.875 10.457C13.875 10.2499 13.7071 10.082 13.5 10.082C13.2929 10.082 13.125 10.2499 13.125 10.457H13.875ZM16.125 7.83203V4.26203H15.375V7.83203H16.125ZM14.07 2.20703H10.5V2.95703H14.07V2.20703ZM16.125 4.26203C16.125 3.97419 16.1253 3.73576 16.1094 3.54186C16.0932 3.34358 16.0583 3.15907 15.9697 2.98509L15.3014 3.32559C15.3272 3.37622 15.3495 3.45103 15.3619 3.60293C15.3747 3.75921 15.375 3.96182 15.375 4.26203H16.125ZM14.07 2.95703C14.3702 2.95703 14.5728 2.95732 14.7291 2.97009C14.881 2.9825 14.9558 3.00481 15.0064 3.0306L15.3469 2.36235C15.173 2.2737 14.9885 2.23878 14.7902 2.22258C14.5963 2.20674 14.3578 2.20703 14.07 2.20703V2.95703ZM15.9697 2.98509C15.8331 2.71697 15.6151 2.49897 15.3469 2.36235L15.0064 3.0306C15.1335 3.09532 15.2367 3.19858 15.3014 3.32559L15.9697 2.98509ZM14.4348 3.36687L8.73484 9.06687L9.26516 9.5972L14.9652 3.8972L14.4348 3.36687ZM9.40909 15.707H6.34091V16.457H9.40909V15.707ZM2.625 11.9911V8.92294H1.875V11.9911H2.625ZM6.34091 15.707C5.61875 15.707 5.09968 15.7067 4.69213 15.6734C4.28897 15.6405 4.02808 15.5771 3.81629 15.4692L3.4758 16.1375C3.81094 16.3082 4.18151 16.3842 4.63106 16.421C5.07623 16.4573 5.63112 16.457 6.34091 16.457V15.707ZM1.875 11.9911C1.875 12.7009 1.87471 13.2558 1.91108 13.701C1.94781 14.1505 2.02379 14.5211 2.19455 14.8562L2.8628 14.5157C2.75489 14.3039 2.69153 14.0431 2.65859 13.6399C2.62529 13.2324 2.625 12.7133 2.625 11.9911H1.875ZM3.81629 15.4692C3.40576 15.26 3.07198 14.9263 2.8628 14.5157L2.19455 14.8562C2.47563 15.4079 2.92414 15.8564 3.4758 16.1375L3.81629 15.4692ZM13.125 11.9911C13.125 12.7133 13.1247 13.2324 13.0914 13.6399C13.0585 14.0431 12.9951 14.3039 12.8872 14.5157L13.5555 14.8562C13.7262 14.5211 13.8022 14.1505 13.8389 13.701C13.8753 13.2558 13.875 12.7009 13.875 11.9911H13.125ZM9.40909 16.457C10.1189 16.457 10.6738 16.4573 11.1189 16.421C11.5685 16.3842 11.9391 16.3082 12.2742 16.1375L11.9337 15.4692C11.7219 15.5771 11.461 15.6405 11.0579 15.6734C10.6503 15.7067 10.1313 15.707 9.40909 15.707V16.457ZM12.8872 14.5157C12.678 14.9263 12.3442 15.26 11.9337 15.4692L12.2742 16.1375C12.8259 15.8564 13.2744 15.4079 13.5555 14.8562L12.8872 14.5157ZM6.34091 4.45703C5.63112 4.45703 5.07623 4.45674 4.63106 4.49311C4.18151 4.52984 3.81094 4.60582 3.4758 4.77658L3.81629 5.44484C4.02808 5.33692 4.28897 5.27356 4.69213 5.24062C5.09967 5.20732 5.61874 5.20703 6.34091 5.20703V4.45703ZM2.625 8.92294C2.625 8.20078 2.62529 7.68171 2.65859 7.27416C2.69153 6.871 2.75489 6.61012 2.8628 6.39832L2.19455 6.05783C2.02379 6.39297 1.94781 6.76355 1.91108 7.21309C1.87471 7.65826 1.875 8.21315 1.875 8.92294H2.625ZM3.4758 4.77658C2.92414 5.05766 2.47563 5.50617 2.19455 6.05783L2.8628 6.39832C3.07198 5.98779 3.40576 5.65401 3.81629 5.44484L3.4758 4.77658ZM6.34091 5.20703H7.875V4.45703H6.34091V5.20703ZM13.125 10.457V11.9911H13.875V10.457H13.125Z"
+                  fill="#8331D3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full md:w-[49%] mt-10 md:mt-[116px]">
+          <div class="linear-background rounded-lg">
+            <img
+              class="w-full overflow-hidden rounded-[23px]"
+              src="images/Group 427320637.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="flex flex-col px-[40px] py-[40px] w-full md:w-[450px]">
+            <p class="text-xl font-medium leading-[115%]">API Connection</p>
+            <p class="mt-5 w-full text-[#9AA0A6]">
+              Allows integration with your systems, automated management, and
+              real-time video stream processing.
+            </p>
+            <a href="" class="flex items-center mt-5 text-[#8331D3]">
+              Learn more
+              <svg
+                class="ml-3"
+                width="18"
+                height="19"
+                viewBox="0 0 18 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.375 7.83203C15.375 8.03914 15.5429 8.20703 15.75 8.20703C15.9571 8.20703 16.125 8.03914 16.125 7.83203H15.375ZM10.5 2.20703C10.2929 2.20703 10.125 2.37492 10.125 2.58203C10.125 2.78914 10.2929 2.95703 10.5 2.95703V2.20703ZM15.6356 3.15534L15.9697 2.98509V2.98509L15.6356 3.15534ZM15.1767 2.69647L15.3469 2.36235V2.36235L15.1767 2.69647ZM14.9652 3.8972C15.1116 3.75075 15.1116 3.51331 14.9652 3.36687C14.8187 3.22042 14.5813 3.22042 14.4348 3.36687L14.9652 3.8972ZM8.73484 9.06687C8.58839 9.21331 8.58839 9.45075 8.73484 9.5972C8.88128 9.74364 9.11872 9.74364 9.26516 9.5972L8.73484 9.06687ZM3.64605 15.8034L3.81629 15.4692H3.81629L3.64605 15.8034ZM2.52868 14.686L2.19455 14.8562H2.19455L2.52868 14.686ZM13.2213 14.686L12.8872 14.5157L13.2213 14.686ZM12.104 15.8034L11.9337 15.4692L12.104 15.8034ZM3.64605 5.11071L3.4758 4.77658L3.64605 5.11071ZM2.52868 6.22808L2.19455 6.05783H2.19455L2.52868 6.22808ZM7.875 5.20703C8.08211 5.20703 8.25 5.03914 8.25 4.83203C8.25 4.62492 8.08211 4.45703 7.875 4.45703V5.20703ZM13.875 10.457C13.875 10.2499 13.7071 10.082 13.5 10.082C13.2929 10.082 13.125 10.2499 13.125 10.457H13.875ZM16.125 7.83203V4.26203H15.375V7.83203H16.125ZM14.07 2.20703H10.5V2.95703H14.07V2.20703ZM16.125 4.26203C16.125 3.97419 16.1253 3.73576 16.1094 3.54186C16.0932 3.34358 16.0583 3.15907 15.9697 2.98509L15.3014 3.32559C15.3272 3.37622 15.3495 3.45103 15.3619 3.60293C15.3747 3.75921 15.375 3.96182 15.375 4.26203H16.125ZM14.07 2.95703C14.3702 2.95703 14.5728 2.95732 14.7291 2.97009C14.881 2.9825 14.9558 3.00481 15.0064 3.0306L15.3469 2.36235C15.173 2.2737 14.9885 2.23878 14.7902 2.22258C14.5963 2.20674 14.3578 2.20703 14.07 2.20703V2.95703ZM15.9697 2.98509C15.8331 2.71697 15.6151 2.49897 15.3469 2.36235L15.0064 3.0306C15.1335 3.09532 15.2367 3.19858 15.3014 3.32559L15.9697 2.98509ZM14.4348 3.36687L8.73484 9.06687L9.26516 9.5972L14.9652 3.8972L14.4348 3.36687ZM9.40909 15.707H6.34091V16.457H9.40909V15.707ZM2.625 11.9911V8.92294H1.875V11.9911H2.625ZM6.34091 15.707C5.61875 15.707 5.09968 15.7067 4.69213 15.6734C4.28897 15.6405 4.02808 15.5771 3.81629 15.4692L3.4758 16.1375C3.81094 16.3082 4.18151 16.3842 4.63106 16.421C5.07623 16.4573 5.63112 16.457 6.34091 16.457V15.707ZM1.875 11.9911C1.875 12.7009 1.87471 13.2558 1.91108 13.701C1.94781 14.1505 2.02379 14.5211 2.19455 14.8562L2.8628 14.5157C2.75489 14.3039 2.69153 14.0431 2.65859 13.6399C2.62529 13.2324 2.625 12.7133 2.625 11.9911H1.875ZM3.81629 15.4692C3.40576 15.26 3.07198 14.9263 2.8628 14.5157L2.19455 14.8562C2.47563 15.4079 2.92414 15.8564 3.4758 16.1375L3.81629 15.4692ZM13.125 11.9911C13.125 12.7133 13.1247 13.2324 13.0914 13.6399C13.0585 14.0431 12.9951 14.3039 12.8872 14.5157L13.5555 14.8562C13.7262 14.5211 13.8022 14.1505 13.8389 13.701C13.8753 13.2558 13.875 12.7009 13.875 11.9911H13.125ZM9.40909 16.457C10.1189 16.457 10.6738 16.4573 11.1189 16.421C11.5685 16.3842 11.9391 16.3082 12.2742 16.1375L11.9337 15.4692C11.7219 15.5771 11.461 15.6405 11.0579 15.6734C10.6503 15.7067 10.1313 15.707 9.40909 15.707V16.457ZM12.8872 14.5157C12.678 14.9263 12.3442 15.26 11.9337 15.4692L12.2742 16.1375C12.8259 15.8564 13.2744 15.4079 13.5555 14.8562L12.8872 14.5157ZM6.34091 4.45703C5.63112 4.45703 5.07623 4.45674 4.63106 4.49311C4.18151 4.52984 3.81094 4.60582 3.4758 4.77658L3.81629 5.44484C4.02808 5.33692 4.28897 5.27356 4.69213 5.24062C5.09967 5.20732 5.61874 5.20703 6.34091 5.20703V4.45703ZM2.625 8.92294C2.625 8.20078 2.62529 7.68171 2.65859 7.27416C2.69153 6.871 2.75489 6.61012 2.8628 6.39832L2.19455 6.05783C2.02379 6.39297 1.94781 6.76355 1.91108 7.21309C1.87471 7.65826 1.875 8.21315 1.875 8.92294H2.625ZM3.4758 4.77658C2.92414 5.05766 2.47563 5.50617 2.19455 6.05783L2.8628 6.39832C3.07198 5.98779 3.40576 5.65401 3.81629 5.44484L3.4758 4.77658ZM6.34091 5.20703H7.875V4.45703H6.34091V5.20703ZM13.125 10.457V11.9911H13.875V10.457H13.125Z"
+                  fill="#8331D3"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="w-full flex flex-col justify-center items-center mt-[80px]">
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] w-full lg:w-[1080px] text-white text-center leading-[118%]"
+      >
+        Use cases
+      </p>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper mt-[80px] py-10">
+          <div class="swiper-slide flex flex-col">
+            <img
+              class="rounded-xl"
+              src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGU1emxjYzM0ZmEydWoycW84b3hzdzR5cHozZzNnaXN6azhtbDRsNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h1R6rV4fTuHy2T74NS/giphy.gif"
+              alt=""
+            />
+
+            <div class="flex flex-col items-center w-4/6">
+              <p class="mt-10 text-2xl">Real-Time Threat Control</p>
+              <p class="mt-5 text-[#9AA0A6] text-base">
+                Fights, weapons, fire—we catch it all. Our AI scans video and
+                camera feeds to instantly detect dangers in buildings and
+                venues, helping stop incidents before they spiral out of
+                control.
+              </p>
+              <a
+                href=""
+                class="mt-5 flex items-center border border-[#8331D3] rounded-full py-[8px] px-[13px]"
+              >
+                More
+                <svg
+                  class="ml-1"
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.1925 13.9425L7.25 15L13.25 9L7.25 3L6.1925 4.0575L11.1275 9"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col">
+            <img
+              class="rounded-xl"
+              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWhkcnhqbHg2NGhjY3h5cTNoZTE1NzVqcGNlb2sxY3JqaGs5bmR3aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gJHvSKQHtWOkNhVeeG/giphy.gif"
+              alt=""
+            />
+
+            <div class="flex flex-col items-center w-4/6">
+              <p class="mt-10 text-2xl">Smart Search and Indexing</p>
+              <p class="mt-5 text-[#9AA0A6] text-base">
+                Our tech turns data chaos into order: smart search and rapid
+                indexing deliver what you need in seconds. Watch the video to
+                see how we analyze, structure, and speed up access to your
+                files—from docs to media.
+              </p>
+              <a
+                href=""
+                class="mt-5 flex items-center border border-[#8331D3] rounded-full py-[8px] px-[13px]"
+              >
+                More
+                <svg
+                  class="ml-1"
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.1925 13.9425L7.25 15L13.25 9L7.25 3L6.1925 4.0575L11.1275 9"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide flex flex-col">
+            <img
+              class="rounded-xl"
+              src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2p3Y2NodWFpNGM1ZmowbHZoamIxdmFrYzZ4Y2Q2Yzd4ejFoaGh5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lckeM9FGQ1SfsjjIz9/giphy.gif"
+              alt=""
+            />
+
+            <div class="flex flex-col items-center w-4/6">
+              <p class="mt-10 text-2xl">Shopping Assistant</p>
+              <p class="mt-5 text-[#9AA0A6] text-base">
+                No more endless scrolling: our AI assistant picks products,
+                answers questions, and guides you to the perfect buy. Smart,
+                fast, and always on your side—shopping has never been this easy.
+              </p>
+              <a
+                href=""
+                class="mt-5 flex items-center border border-[#8331D3] rounded-full py-[8px] px-[13px]"
+              >
+                More
+                <svg
+                  class="ml-1"
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.1925 13.9425L7.25 15L13.25 9L7.25 3L6.1925 4.0575L11.1275 9"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination" style="margin-top: 100px"></div>
+      </div>
+    </div>
+
+    <div class="px-3.5 md:w-full mx-auto flex flex-col items-center mt-[100px]">
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] w-full lg:w-[1080px] text-white text-center leading-[118%]"
+      >
+        Solutions
+      </p>
+
+      <div class="flex flex-wrap justify-between w-full mt-[75px]">
+        <img
+          class="w-full md:w-[49%] mb-8"
+          src="images/div.Overview_gradientWrapper__0z7Yl.png"
+          alt=""
+        />
+
+        <img class="w-full md:w-[49%] mb-8" src="images/Visa.png" alt="" />
+
+        <img
+          class="mb-8 w-full md:w-[65%] rounded-xl"
+          src="images/Visa (1).png"
+          alt=""
+        />
+
+        <img
+          class="mb-8 w-full md:w-[34%]"
+          src="images/div.Overview_gradientWrapper__0z7Yl (1).png"
+          alt=""
+        />
+
+        <img
+          class="mb-8 w-full md:w-[45%]"
+          src="images/div.Overview_gradientWrapper__0z7Yl.png"
+          alt=""
+        />
+
+        <img class="mb-8 w-full md:w-[54%]" src="images/Visa (2).png" alt="" />
+      </div>
+    </div>
+
+    <div
+      class="px-3.5 md:w-full md:py-0 lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]"
+    >
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] text-white text-center"
+      >
+        FAQ
+      </p>
+
+      <div class="flex flex-col w-full">
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              What does bizdin.ai do differently from other video analytics
+              tools?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Unlike traditional tools that just detect objects, bizdin.ai
+              understands what’s happening. It turns any camera into a smart
+              system that sees <br />
+              context—whether it’s spotting a fight, analyzing customer
+              behavior, or preventing incidents—all in real time, without
+              relying on the cloud.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              How does bizdin.ai work with existing cameras?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              We don’t sell hardware—we supercharge what you already have.
+              bizdin.ai connects to any IP or RTSP camera, processing video
+              locally on-site. No need to replace equipment, just plug in and
+              let our AI do the rest.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              Can bizdin.ai really prevent incidents like fights or fires?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Yes, it’s built for that. Our AI analyzes live feeds to detect
+              threats—like fights, weapons, or smoke—instantly, then triggers
+              alerts or actions (like notifying security) to stop trouble before
+              it escalates.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              Why doesn’t bizdin.ai need cloud processing like other AI systems?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              We use Edge AI, meaning all the heavy lifting happens locally.
+              This cuts delays, keeps your data secure, and works even without
+              internet—perfect for real-time needs like safety or business ops.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">Who can use bizdin.ai?</p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Anyone with cameras and a need for insights! Think schools
+              tracking safety, businesses optimizing customer flow, or cities
+              managing security. From small shops to governments, we’re built to
+              scale.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              Do I need coding skills to set up bizdin.ai?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Nope, it’s no-code all the way. Just type a command like ‘Alert me
+              if a fight starts,’ and our AI sets it up. You get powerful
+              customization without touching a line of code.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              Can we partner with bizdin.ai?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Yes! We’re open to partnerships—whether you’re a business,
+              government, or innovator. Write to us at [insert contact], and
+              let’s explore how we can work together
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              If I’m a developer with CV algorithms, can I join your ecosystem
+              and collaborate?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Absolutely! Our platform welcomes developers. Integrate your
+              computer vision algorithms via our API/SDK, build on our
+              ecosystem, and let’s create something powerful together—contact us
+              to get started.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <div
+            class="cursor-pointer question flex py-[32px] justify-between border-b border-[rgba(156,163,175,0.32)]"
+          >
+            <p class="text-xl leading-[32px] w-full">
+              Can bizdin.ai search through hours of video like Google searches
+              the web?
+            </p>
+
+            <svg
+              class="arrow-question"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="32"
+                height="32"
+                rx="16"
+                fill="#F7F8FA"
+                fill-opacity="0.13"
+              />
+              <path
+                d="M10 14L16 20L22 14"
+                stroke="#555A65"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="answer">
+            <p class="text-[#9AA0A6] py-[16px]">
+              Exactly! With VideoGPT, you can ask things like ‘Find the guy in
+              the red shirt’ or ‘Show me when the crowd got rowdy.’ It digs
+              through video instantly—no tags needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="px-3.5 md:w-full lg:w-[1080px] mx-auto flex flex-col items-center mt-[100px]"
+    >
+      <p
+        class="font-bold text-4xl lg:text-[75px] leading-[118%] text-white text-center"
+      >
+        Who trusts us
+      </p>
+
+      <div
+        class="w-full flex flex-wrap items-center justify-between space-x-3 mt-10 md:mt-0"
+      >
+        <img
+          class="w-full md:w-1/3 lg:w-1/5"
+          src="images/Logo_Horizont_Invers.png"
+          alt=""
+        />
+
+        <img
+          class="w-full md:w-1/3 lg:w-1/5"
+          src="images/marina-bay-sands-seeklogo 2 2.bb2a3da22c4c652deaf3.png"
+          alt=""
+        />
+
+        <img
+          class="w-full md:w-1/3 lg:w-1/5"
+          src="images/Nvidia-White-Horizontal-Dark-Background-Logo.wine-removebg-preview.e1a7a850944e93007764.png"
+          alt=""
+        />
+
+        <img
+          class="w-full md:w-1/3 lg:w-1/5"
+          src="images/Frame 10.d05aec7cdccc10158604.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <footer
+      class="mt-10 flex flex-col items-center justify-center bg-[rgba(255,255,255,0.07)] py-10 px-5"
+    >
+      <img src="images/logo.svg" alt="" />
+      <p class="text-xl text-center mt-10 w-full">
+        Your Gateway Real-time vision intellegence
+      </p>
+    </footer>
+
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 0,
+        initialSlide: 1,
+        centeredSlides: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
     <script
       type="module"
-      src="https://unpkg.com/@splinetool/viewer@1.9.75/build/spline-viewer.js"></script>
+      src="https://unpkg.com/@splinetool/viewer@1.9.75/build/spline-viewer.js"
+    ></script>
   </body>
 </html>
