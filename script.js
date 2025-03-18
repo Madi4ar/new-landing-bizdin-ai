@@ -45,6 +45,8 @@ document.querySelector(".open-play").onclick = function () {
 };
 
 document.querySelector(".close-btn").onclick = function () {
+  const iframe = document.querySelector("iframe");
+  iframe.src = iframe.src;
   document.querySelector(".popup").classList.add("hidden");
 };
 
